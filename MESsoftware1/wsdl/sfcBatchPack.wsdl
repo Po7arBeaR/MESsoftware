@@ -1,0 +1,183 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://sfcBatchPack.ws.atlmes.com/" targetNamespace="http://sfcBatchPack.ws.atlmes.com/">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sfcBatchPack.ws.atlmes.com/" version="1.0">
+<xs:element name="BusinessException" type="tns:BusinessException"/>
+<xs:element name="getContainerCustomData" type="tns:getContainerCustomData"/>
+<xs:element name="getContainerCustomDataResponse" type="tns:getContainerCustomDataResponse"/>
+<xs:element name="getInternationalSfc" type="tns:getInternationalSfc"/>
+<xs:element name="getInternationalSfcResponse" type="tns:getInternationalSfcResponse"/>
+<xs:element name="miAddCheckMarkAndPackForsfcBatch" type="tns:miAddCheckMarkAndPackForsfcBatch"/>
+<xs:element name="miAddCheckMarkAndPackForsfcBatchResponse" type="tns:miAddCheckMarkAndPackForsfcBatchResponse"/>
+<xs:element name="miAddCheckMarkAndPackForsfcRequest" type="tns:miAddCheckMarkAndPackForsfcRequest"/>
+<xs:element name="miAddCheckMarkAndPackForsfcResponse" type="tns:miAddCheckMarkAndPackForsfcResponse"/>
+<xs:complexType name="miAddCheckMarkAndPackForsfcBatch">
+<xs:sequence>
+<xs:element minOccurs="0" name="MiAddCheckMarkAndPackForsfcRequest" type="tns:miAddCheckMarkAndPackForsfcRequest"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="miAddCheckMarkAndPackForsfcRequest">
+<xs:sequence>
+<xs:element name="site" type="xs:string"/>
+<xs:element name="container" type="xs:string"/>
+<xs:element name="containerNumber" type="xs:string"/>
+<xs:element name="checkMarking" type="xs:boolean"/>
+<xs:element name="activity" type="xs:string"/>
+<xs:element name="operation" type="xs:string"/>
+<xs:element name="resource" type="xs:string"/>
+<xs:element name="closeContainer" type="xs:boolean"/>
+<xs:element minOccurs="0" name="packGroup" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="sfcList" type="tns:requestSfcDetail"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="requestSfcDetail">
+<xs:sequence>
+<xs:element minOccurs="0" name="packGroupCode" type="xs:string"/>
+<xs:element minOccurs="0" name="sequence" type="xs:string"/>
+<xs:element minOccurs="0" name="sfc" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="miAddCheckMarkAndPackForsfcBatchResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:miAddCheckMarkAndPackForsfcResponse"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="miAddCheckMarkAndPackForsfcResponse">
+<xs:sequence>
+<xs:element name="code" type="xs:int"/>
+<xs:element name="message" type="xs:string"/>
+<xs:element maxOccurs="unbounded" name="sfcList" type="tns:responseSfcDetail"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="responseSfcDetail">
+<xs:sequence>
+<xs:element minOccurs="0" name="containerNumber" type="xs:string"/>
+<xs:element minOccurs="0" name="sfc" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getContainerCustomData">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string"/>
+<xs:element minOccurs="0" name="arg1" type="xs:string"/>
+<xs:element minOccurs="0" name="arg2" type="tns:dynamicQuery"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="dynamicQuery">
+<xs:sequence>
+<xs:element name="maxRows" type="xs:int"/>
+<xs:element name="overrideMaxRowCount" type="xs:boolean"/>
+<xs:element name="rowStart" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getContainerCustomDataResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:data"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="data">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getInternationalSfc">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string"/>
+<xs:element minOccurs="0" name="arg1" type="xs:string"/>
+<xs:element minOccurs="0" name="arg2" type="tns:dynamicQuery"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getInternationalSfcResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="BusinessException">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="details" type="xs:anyType"/>
+<xs:element name="errorCode" type="xs:int"/>
+<xs:element minOccurs="0" name="message" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="suppressed" type="tns:throwable"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="throwable">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="stackTrace" nillable="true" type="tns:stackTraceElement"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="extension restriction" name="stackTraceElement">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="miAddCheckMarkAndPackForsfcBatchIn">
+<wsdl:part element="tns:miAddCheckMarkAndPackForsfcBatch" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="miAddCheckMarkAndPackForsfcBatchOut">
+<wsdl:part element="tns:miAddCheckMarkAndPackForsfcBatchResponse" name="miAddCheckMarkAndPackForsfcBatchResponse"/>
+</wsdl:message>
+<wsdl:message name="getContainerCustomDataIn">
+<wsdl:part element="tns:getContainerCustomData" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getContainerCustomDataOut">
+<wsdl:part element="tns:getContainerCustomDataResponse" name="getContainerCustomDataResponse"/>
+</wsdl:message>
+<wsdl:message name="getInternationalSfcIn">
+<wsdl:part element="tns:getInternationalSfc" name="parameters"/>
+</wsdl:message>
+<wsdl:message name="getInternationalSfcOut">
+<wsdl:part element="tns:getInternationalSfcResponse" name="getInternationalSfcResponse"/>
+</wsdl:message>
+<wsdl:message name="getInternationalSfcFault">
+<wsdl:part element="tns:BusinessException" name="BusinessException"/>
+</wsdl:message>
+<wsdl:portType name="MiAddCheckMarkAndPackForsfcBatchService">
+<wsdl:operation name="miAddCheckMarkAndPackForsfcBatch" parameterOrder="parameters">
+<wsdl:input message="tns:miAddCheckMarkAndPackForsfcBatchIn"/>
+<wsdl:output message="tns:miAddCheckMarkAndPackForsfcBatchOut"/>
+</wsdl:operation>
+<wsdl:operation name="getContainerCustomData" parameterOrder="parameters">
+<wsdl:input message="tns:getContainerCustomDataIn"/>
+<wsdl:output message="tns:getContainerCustomDataOut"/>
+</wsdl:operation>
+<wsdl:operation name="getInternationalSfc" parameterOrder="parameters">
+<wsdl:input message="tns:getInternationalSfcIn"/>
+<wsdl:output message="tns:getInternationalSfcOut"/>
+<wsdl:fault message="tns:getInternationalSfcFault" name="BusinessException"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="MiAddCheckMarkAndPackForsfcBatchServiceBinding" type="tns:MiAddCheckMarkAndPackForsfcBatchService">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="miAddCheckMarkAndPackForsfcBatch">
+<soap:operation soapAction=""/>
+<wsdl:input>
+<soap:body parts="parameters" use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getContainerCustomData">
+<soap:operation soapAction=""/>
+<wsdl:input>
+<soap:body parts="parameters" use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getInternationalSfc">
+<soap:operation soapAction=""/>
+<wsdl:input>
+<soap:body parts="parameters" use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="BusinessException">
+<soap:fault name="BusinessException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="MiAddCheckMarkAndPackForsfcBatchServiceService">
+<wsdl:port binding="tns:MiAddCheckMarkAndPackForsfcBatchServiceBinding" name="MiAddCheckMarkAndPackForsfcBatchServicePort">
+<soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="http://ndmes4p093.catlbattery.com:50300/atlmeswebservice/MiAddCheckMarkAndPackForsfcBatchServiceService"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MESsoftware1.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MESsoftware1_micheckMarkAnddcPackForSfc_MiCheckMarkAndDcPackForsfcServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ndmes4p093.catlbattery.com:50300/atlmeswebservice/MiCheckMarkAndDcPackForsfcServiceService</Value>
+    </Setting>
+    <Setting Name="MESsoftware1_sfcBatchPack_MiAddCheckMarkAndPackForsfcBatchServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ndmes4p093.catlbattery.com:50300/atlmeswebservice/MiAddCheckMarkAndPackForsfcBatchServiceService</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

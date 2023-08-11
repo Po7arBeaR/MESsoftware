@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://micheckmarkanddcpackforsfc.ws.atlmes.com/" targetNamespace="http://micheckmarkanddcpackforsfc.ws.atlmes.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://micheckmarkanddcpackforsfc.ws.atlmes.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="checkMarkAndDcForSfcRequest" type="tns:CheckMarkAndDCForSfcRequest" />
+      <xs:element name="checkMarkAndDcForSfcResponse" type="tns:checkMarkAndDcForSfcResponse" />
+      <xs:element name="miCheckMarkAndDCForSfc" type="tns:miCheckMarkAndDCForSfc" />
+      <xs:element name="miCheckMarkAndDCForSfcResponse" type="tns:miCheckMarkAndDCForSfcResponse" />
+      <xs:complexType name="miCheckMarkAndDCForSfc">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CheckMarkAndDcForSfcRequest" type="tns:CheckMarkAndDCForSfcRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CheckMarkAndDCForSfcRequest">
+        <xs:sequence>
+          <xs:element name="sfc" type="xs:string" />
+          <xs:element name="site" type="xs:string" />
+          <xs:element minOccurs="0" name="operation" type="xs:string" />
+          <xs:element minOccurs="0" name="resource" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="miCheckMarkAndDCForSfcResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:checkMarkAndDcForSfcResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkMarkAndDcForSfcResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:int" />
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+          <xs:element minOccurs="0" name="sfc" type="xs:string" />
+          <xs:element minOccurs="0" name="groupCode" type="xs:string" />
+          <xs:element minOccurs="0" name="groupBasis" type="xs:string" />
+          <xs:element minOccurs="0" name="labelRemarks" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="miCheckMarkAndDCForSfcIn">
+    <wsdl:part name="parameters" element="tns:miCheckMarkAndDCForSfc" />
+  </wsdl:message>
+  <wsdl:message name="miCheckMarkAndDCForSfcOut">
+    <wsdl:part name="miCheckMarkAndDCForSfcResponse" element="tns:miCheckMarkAndDCForSfcResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MiCheckMarkAndDcPackForsfcService">
+    <wsdl:operation name="miCheckMarkAndDCForSfc" parameterOrder="parameters">
+      <wsdl:input message="tns:miCheckMarkAndDCForSfcIn" />
+      <wsdl:output message="tns:miCheckMarkAndDCForSfcOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="MiCheckMarkAndDcPackForsfcServiceBinding" type="tns:MiCheckMarkAndDcPackForsfcService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="miCheckMarkAndDCForSfc">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MiCheckMarkAndDcPackForsfcServiceService">
+    <wsdl:port name="MiCheckMarkAndDcPackForsfcServicePort" binding="tns:MiCheckMarkAndDcPackForsfcServiceBinding">
+      <address location="http://ndmes4p093.catlbattery.com:50300/atlmeswebservice/MiCheckMarkAndDcPackForsfcServiceService" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
