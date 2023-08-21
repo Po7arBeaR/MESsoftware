@@ -32,5 +32,10 @@ namespace MESsoftware1.Form_EX
             Form_DEBUG form = new Form_DEBUG();
             form.ShowDialog();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
