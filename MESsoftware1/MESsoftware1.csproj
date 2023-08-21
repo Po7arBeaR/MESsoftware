@@ -499,6 +499,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="64b7a1cca77dc.256px.ico" />
+    <None Include="Resources\微信图片_20230821102813.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SkiaSharp.NativeAssets.macOS.2.88.3\build\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.macOS.2.88.3\build\net462\SkiaSharp.NativeAssets.macOS.targets')" />
